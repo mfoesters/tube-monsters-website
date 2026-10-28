@@ -1,0 +1,112 @@
+/* Tube Monsters site — "Little Monsters" style (colours from the game's theme.ts). */
+@font-face { font-family: 'Lilita One'; font-weight: 400; font-display: swap; src: url(fonts/lilita-one-latin-400-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Nunito'; font-weight: 700; font-display: swap; src: url(fonts/nunito-latin-700-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Nunito'; font-weight: 800; font-display: swap; src: url(fonts/nunito-latin-800-normal.woff2) format('woff2'); }
+@font-face { font-family: 'Nunito'; font-weight: 900; font-display: swap; src: url(fonts/nunito-latin-900-normal.woff2) format('woff2'); }
+
+:root {
+  color-scheme: light dark;
+  --bg: #E9EEE6;
+  --surface: #FFFFFF;
+  --ink: #1D2328;      /* outlines + shadows */
+  --text: #1D2328;
+  --muted: #46504A;
+  --line: #C9D0CA;
+  --orange: #FF7A2F;
+  --blue: #3E7BFA;
+  --lime: #A6E03C;
+  --yellow: #FFC93C;
+  --purple: #8B6CF0;
+  --link: #2552B8;
+  --display: 'Lilita One', 'Arial Rounded MT Bold', system-ui, sans-serif;
+  --body: 'Nunito', ui-rounded, system-ui, -apple-system, 'Segoe UI', sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #161B1F;
+    --surface: #232A30;
+    --ink: #050708;
+    --text: #EEF2EC;
+    --muted: #AEB8B1;
+    --line: #3A444B;
+    --link: #8FB4FF;
+  }
+}
+
+* { box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--text);
+  font: 700 17px/1.55 var(--body);
+}
+.wrap { max-width: 760px; margin: 0 auto; padding: 24px 16px 48px; }
+h1, h2, h3, .display { font-family: var(--display); font-weight: 400; line-height: 1.15; letter-spacing: .2px; }
+h1 { font-size: clamp(34px, 8vw, 48px); margin: 8px 0 6px; }
+h2 { font-size: 26px; margin: 34px 0 10px; }
+h3 { font-size: 20px; margin: 22px 0 6px; }
+p, li { margin: 0 0 10px; }
+ul { padding-left: 22px; }
+a { color: var(--link); font-weight: 800; text-underline-offset: 3px; }
+a:focus-visible, .btn:focus-visible { outline: 3px solid var(--blue); outline-offset: 3px; }
+strong { font-weight: 900; }
+.muted { color: var(--muted); }
+small, .small { font-size: 14px; }
+
+/* Header */
+.top { display: flex; align-items: center; gap: 12px; margin-bottom: 18px; }
+.top a.home { display: inline-flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-family: var(--display); font-size: 22px; }
+.top img { width: 40px; height: 40px; border-radius: 11px; border: 3px solid var(--ink); }
+.top .spacer { flex: 1; }
+.top nav { display: flex; gap: 14px; font-size: 15px; }
+
+/* Cards */
+.card {
+  background: var(--surface);
+  border: 3px solid var(--ink);
+  border-radius: 24px;
+  box-shadow: 0 4px 0 var(--ink);
+  padding: 20px;
+  margin: 18px 0;
+}
+.app-card { display: flex; gap: 18px; align-items: center; flex-wrap: wrap; }
+.app-card img { width: 108px; height: 108px; border-radius: 26px; border: 3px solid var(--ink); box-shadow: 0 4px 0 var(--ink); flex: none; }
+.app-card .info { flex: 1 1 240px; }
+.app-card h2 { margin: 0 0 4px; font-size: 30px; }
+.links { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 12px; }
+
+/* Buttons: press down 4px and lose the shadow, like in the game */
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 46px; padding: 0 18px;
+  border: 3px solid var(--ink); border-radius: 16px; box-shadow: 0 4px 0 var(--ink);
+  background: var(--surface); color: var(--text);
+  font: 900 16px/1 var(--body); text-decoration: none;
+}
+.btn.orange { background: var(--orange); color: #1D2328; }
+.btn:active { transform: translateY(4px); box-shadow: none; }
+.btn[aria-disabled="true"] { background: var(--line); color: var(--muted); cursor: default; }
+.btn[aria-disabled="true"]:active { transform: none; box-shadow: 0 4px 0 var(--ink); }
+
+/* Monster dots (decoration) */
+.dots { display: flex; gap: 8px; margin: 4px 0 8px; }
+.dots span { width: 22px; height: 22px; border-radius: 50%; border: 3px solid var(--ink); }
+.dots .o { background: var(--orange); } .dots .b { background: var(--blue); } .dots .l { background: var(--lime); }
+.dots .y { background: var(--yellow); } .dots .p { background: var(--purple); }
+
+/* Policy / FAQ text */
+.prose h2:first-child { margin-top: 0; }
+.lang-switch { display: flex; gap: 10px; flex-wrap: wrap; }
+.summary { border-left: 6px solid var(--lime); padding: 2px 0 2px 14px; }
+details { border-top: 2px solid var(--line); padding: 12px 0; }
+details:first-of-type { border-top: 0; }
+summary { cursor: pointer; font-weight: 900; font-size: 18px; list-style-position: outside; }
+details[open] summary { margin-bottom: 8px; }
+table { border-collapse: collapse; width: 100%; font-size: 15px; }
+th, td { text-align: left; vertical-align: top; padding: 8px 8px 8px 0; border-top: 2px solid var(--line); }
+th { font-weight: 900; }
+.table-scroll { overflow-x: auto; }
+
+footer { margin-top: 36px; font-size: 14px; color: var(--muted); text-align: center; }
+footer a { color: var(--muted); }
