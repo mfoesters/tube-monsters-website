@@ -1,4 +1,4 @@
-# apps-website
+# mfoesters.github.io
 
 Static site for Matthias Foesters' apps (GitHub Pages). Plain HTML/CSS: no cookies, no analytics, no external
 scripts or fonts (Lilita One + Nunito are self-hosted, SIL OFL, licences in `assets/fonts/`).
@@ -9,7 +9,7 @@ scripts or fonts (Lilita One + Nunito are self-hosted, SIL OFL, licences in `ass
 | `/tube-monsters/privacy/` | `tube-monsters/privacy/index.html` (English + Dutch) |
 | `/tube-monsters/support/` | `tube-monsters/support/index.html` |
 | `/app-ads.txt` | `app-ads.txt` (AdMob) |
-| 404 | `404.html` (inline CSS; its "Go home" link is the full github.io URL: change it when you add a custom domain) |
+| 404 | `404.html` (inline CSS, absolute links: the site is served from the domain root, mfoesters.github.io) |
 
 Preview locally: `python3 -m http.server 5199` → http://localhost:5199
 
